@@ -1,0 +1,113 @@
+{
+  "name": "timio",
+  "version": "1.0.0",
+  "description": "A cozy Pomodoro timer with pixel pet companion",
+  "main": "dist/main/index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "electron:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && node -e \\\"setTimeout(()=>{},3000)\\\" && electron .\"",
+    "electron:build": "npm run build && electron-builder",
+    "build:win": "npm run build && electron-builder --win",
+    "build:mac": "npm run build && electron-builder --mac",
+    "build:linux": "npm run build && electron-builder --linux",
+    "build:all": "npm run build && electron-builder -mwl"
+  },
+  "keywords": [
+    "pomodoro",
+    "electron",
+    "react",
+    "typescript",
+    "pixel-art"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "@vitejs/plugin-react": "^4.2.1",
+    "concurrently": "^8.2.2",
+    "electron": "^28.1.4",
+    "electron-builder": "^24.9.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11",
+    "vite-plugin-electron": "^0.28.2",
+    "wait-on": "^7.2.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tone": "^15.1.22"
+  },
+  "build": {
+    "appId": "com.timio.app",
+    "productName": "Timio",
+    "directories": {
+      "output": "release",
+      "buildResources": "assets/appIcon"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "dist/renderer/1 Dog",
+        "to": "assets/1 Dog"
+      },
+      {
+        "from": "dist/renderer/2 Dog 2",
+        "to": "assets/2 Dog 2"
+      },
+      {
+        "from": "dist/renderer/3 Cat",
+        "to": "assets/3 Cat"
+      },
+      {
+        "from": "dist/renderer/4 Cat 2",
+        "to": "assets/4 Cat 2"
+      },
+      {
+        "from": "dist/renderer/5 Rat",
+        "to": "assets/5 Rat"
+      },
+      {
+        "from": "dist/renderer/6 Rat 2",
+        "to": "assets/6 Rat 2"
+      },
+      {
+        "from": "dist/renderer/7 Bird",
+        "to": "assets/7 Bird"
+      },
+      {
+        "from": "dist/renderer/8 Bird 2",
+        "to": "assets/8 Bird 2"
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": ["dmg", "zip"],
+      "icon": "assets/appIcon/icon.png",
+      "darkModeSupport": true
+    },
+    "win": {
+      "target": ["nsis", "portable"],
+      "icon": "assets/appIcon/timio.png",
+      "signingHashAlgorithms": ["sha256"],
+      "signDlls": false
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "category": "Utility",
+      "icon": "assets/appIcon/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
