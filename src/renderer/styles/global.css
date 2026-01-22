@@ -1,0 +1,50 @@
+@font-face {
+  font-family: 'Future Millennium';
+  src: url('/FutureMillennium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Future Millennium', 'Courier New', monospace;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Pixel-perfect rendering for sprites */
+canvas {
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* Custom scrollbar for settings */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 140, 50, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 140, 50, 0.8);
+}
