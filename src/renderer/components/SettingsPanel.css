@@ -1,0 +1,202 @@
+.settings-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.settings-panel {
+  background: linear-gradient(to bottom, 
+    rgba(62, 39, 35, 0.98),
+    rgba(52, 31, 28, 0.98)
+  );
+  border: 4px solid rgba(255, 140, 50, 0.6);
+  border-radius: clamp(12px, 2vw, 16px);
+  padding: clamp(20px, 4vw, 30px);
+  min-width: min(90vw, 350px);
+  max-width: min(95vw, 500px);
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 
+    0 10px 50px rgba(0, 0, 0, 0.9),
+    0 0 40px rgba(255, 140, 50, 0.3);
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: clamp(20px, 3vh, 30px);
+}
+
+.settings-header h2 {
+  color: #ffb347;
+  font-size: clamp(18px, 3vw, 24px);
+  text-shadow: 
+    0 0 10px rgba(255, 140, 50, 0.8),
+    0 2px 4px rgba(0, 0, 0, 0.6);
+  letter-spacing: clamp(2px, 0.5vw, 3px);
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #c0c0d0;
+  font-size: clamp(24px, 4vw, 28px);
+  cursor: pointer;
+  width: clamp(32px, 5vw, 36px);
+  height: clamp(32px, 5vw, 36px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  background: rgba(255, 140, 50, 0.2);
+  color: #ffb347;
+  transform: rotate(90deg);
+}
+
+.settings-content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 3vh, 24px);
+}
+
+.setting-item {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 1vh, 8px);
+}
+
+.setting-item label {
+  color: #ffb347;
+  font-size: clamp(14px, 2vw, 16px);
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(255, 140, 50, 0.5);
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.input-group input {
+  background: rgba(30, 20, 18, 0.8);
+  border: 2px solid rgba(255, 140, 50, 0.4);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 18px;
+  color: #ffb347;
+  font-family: 'Future Millennium', 'Courier New', monospace;
+  width: 80px;
+  text-align: center;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #ffb347;
+  box-shadow: 
+    inset 0 2px 6px rgba(0, 0, 0, 0.5),
+    0 0 15px rgba(255, 140, 50, 0.5);
+}
+
+.input-group span {
+  color: #c0c0d0;
+  font-size: 14px;
+}
+
+.setting-item small {
+  color: #999;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.setting-info {
+  background: rgba(30, 20, 18, 0.6);
+  border: 2px solid rgba(100, 150, 200, 0.4);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 8px;
+}
+
+.setting-info p {
+  color: #9db4d0;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.setting-info small {
+  color: #7a8fa0;
+  font-size: 12px;
+}
+
+.settings-footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.save-btn {
+  padding: 14px 48px;
+  font-size: 18px;
+  font-family: 'Future Millennium', 'Courier New', monospace;
+  font-weight: bold;
+  background: linear-gradient(to bottom, 
+    rgba(80, 180, 100, 1),
+    rgba(60, 150, 80, 1)
+  );
+  color: #ffffff;
+  border: 3px solid rgba(100, 200, 120, 0.6);
+  border-radius: 10px;
+  cursor: pointer;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    inset 0 -2px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+  letter-spacing: 2px;
+}
+
+.save-btn:hover {
+  background: linear-gradient(to bottom, 
+    rgba(100, 200, 120, 1),
+    rgba(80, 170, 100, 1)
+  );
+  box-shadow: 
+    0 0 30px rgba(80, 180, 100, 0.8),
+    0 4px 16px rgba(0, 0, 0, 0.6),
+    inset 0 -2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.save-btn:active {
+  transform: scale(0.95) translateY(2px);
+}

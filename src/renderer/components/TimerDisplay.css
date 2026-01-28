@@ -1,0 +1,41 @@
+.timer-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: clamp(10px, 2vh, 20px) 0;
+}
+
+.time-digits {
+  font-size: clamp(48px, 12vw, 96px);
+  font-weight: bold;
+  color: #ffb347;
+  text-shadow: 
+    0 0 20px rgba(255, 140, 50, 1),
+    0 0 40px rgba(255, 100, 30, 0.6),
+    0 0 60px rgba(255, 80, 20, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.8);
+  letter-spacing: clamp(4px, 1vw, 8px);
+  font-family: 'Future Millennium', 'Courier New', monospace;
+  transition: all 0.3s ease;
+}
+
+.timer-display.running .time-digits {
+  animation: ember-pulse 2s ease-in-out infinite;
+}
+
+@keyframes ember-pulse {
+  0%, 100% {
+    text-shadow: 
+      0 0 20px rgba(255, 140, 50, 1),
+      0 0 40px rgba(255, 100, 30, 0.6),
+      0 0 60px rgba(255, 80, 20, 0.3),
+      0 2px 4px rgba(0, 0, 0, 0.8);
+  }
+  50% {
+    text-shadow: 
+      0 0 30px rgba(255, 140, 50, 1),
+      0 0 60px rgba(255, 100, 30, 0.8),
+      0 0 90px rgba(255, 80, 20, 0.5),
+      0 2px 4px rgba(0, 0, 0, 0.8);
+  }
+}
